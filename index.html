@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Форма запиту</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .star-button {
+        font-size: 24px;
+        background-color: gold;
+        border: none;
+        width: 100px;
+        height: 100px;
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+        cursor: pointer;
+      }
+      .form-container,
+      .heart-container {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+      }
+      input {
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+      }
+      .submit-button {
+        background-color: #ff4081;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+      }
+      .submit-button:hover {
+        background-color: #e91e63;
+      }
+      .heart-container {
+        font-size: 24px;
+      }
+      .heart {
+        color: red;
+        font-size: 50px;
+        animation: pulse 1s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="star-button" onclick="showForm()"></button>
+
+    <div class="form-container" id="formContainer">
+      <p>Як звати вашу дитину?</p>
+      <input type="text" id="childName" placeholder="Введіть ім'я" />
+      <button class="submit-button" onclick="checkName()">Підтвердити</button>
+    </div>
+
+    <div class="heart-container" id="heartContainer">
+      <p>Дякую що ще терпите</p>
+      <div class="heart">❤️</div>
+    </div>
+
+    <script>
+      function showForm() {
+        document.getElementById("formContainer").style.display = "block";
+      }
+
+      function checkName() {
+        var name = document.getElementById("childName").value;
+        if (name.trim().toLowerCase() === "аня") {
+          document.getElementById("formContainer").style.display = "none";
+          document.getElementById("heartContainer").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
